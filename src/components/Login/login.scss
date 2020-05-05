@@ -1,0 +1,21 @@
+.login{
+  padding:20px;
+  height: 400px;
+  padding-left: 40px;
+  background-color: #f0f2f5;
+  margin:0 15%;
+  .login-content{
+    width: 300px;
+    margin:30px auto;
+    div{
+      margin-bottom: 20px;
+    }
+    .lock{
+      display: flex;
+      justify-content: space-between;
+    }
+    button{
+      width: 300px;
+    }
+  }
+}
