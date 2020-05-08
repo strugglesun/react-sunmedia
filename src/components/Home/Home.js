@@ -31,22 +31,22 @@ class Home extends Component {
             <div className="main-middle-right">
               <h3>您的客户:</h3>
               <div>
-                <p><div><Link to='/Customer/1011121/activities'>华为</Link>
+                <p><div><Link to='/customer/1011121/activities'>华为</Link>
                   <span>(8个活动)</span></div>
                   <span>查看列表</span></p>
-                <p><span>最后访问的活动 : Q2 Promotion </span><Link to='/Activity/report'>查看报告</Link></p>
+                <p><span>最后访问的活动 : Q2 Promotion </span><Link to='/activity/report'>查看报告</Link></p>
               </div>
               <div>
-                <p><div><Link to='/Customer/1011122/activities'>京东</Link>
+                <p><div><Link to='/customer/1011122/activities'>京东</Link>
                   <span>(4个活动)</span></div>
                   <span>查看列表</span></p>
-                <p><span>最后访问的活动 : S80上市会 </span><Link to='/Activity/report'>查看报告</Link></p>
+                <p><span>最后访问的活动 : S80上市会 </span><Link to='/activity/report'>查看报告</Link></p>
               </div>
               <div>
-                <p><div><Link to='/Customer/1011123/activities'>阿里</Link>
+                <p><div><Link to='/customer/1011123/activities'>阿里</Link>
                   <span>(6个活动)</span></div>
                   <span>查看列表</span></p>
-                <p><span>最后访问的活动 : SPC Minisite </span><Link to='/Activity/report'>查看报告</Link></p>
+                <p><span>最后访问的活动 : SPC Minisite </span><Link to='/activity/report'>查看报告</Link></p>
               </div>
             </div>
           </div>

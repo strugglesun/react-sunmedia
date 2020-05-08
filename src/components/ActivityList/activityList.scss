@@ -3,6 +3,9 @@
   padding-left: 40px;
   background-color: #f0f2f5;
   margin:0 15%;
+  button{
+    margin:0 10px 10px 0;
+  }
   input {
     display: inline-block;
     width: 20px;
@@ -13,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 10px;
+    // margin-top: 10px;
     font-weight: bold;
     .title{
       display: flex;

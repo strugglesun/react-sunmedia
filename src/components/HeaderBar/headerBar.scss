@@ -19,7 +19,14 @@
     padding:0 15%;
     display: flex;
     justify-content: space-between;
+    
     // background-color: #fff;
+    .ant-menu{
+      .bgc{
+        background-color: #03111f;
+        color:#ccc;
+      }
+    }
     img{
       width: 250px;
       height: 64px;

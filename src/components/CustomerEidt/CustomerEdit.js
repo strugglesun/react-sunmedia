@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import CustomerHandler from '../CustomerHandle/CustomerHandler'
-class CustomerAdd extends Component {
+class CustomerEdit extends Component {
   state = {}
   render() {
     return (
-      <div className='customer-add'>
-        <CustomerHandler></CustomerHandler>
-      </div>
+      <CustomerHandler></CustomerHandler>
     );
   }
 }
 
-export default CustomerAdd;
+export default CustomerEdit;

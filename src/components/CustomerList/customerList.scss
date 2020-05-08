@@ -42,14 +42,15 @@
         justify-content:space-between;
         list-style: none;
         
-        a{
-          width: 190px;
-          display: inline-block;
-        }
+        
         .content {
           margin-left: 20px;
           display: flex;
         justify-content: space-between;
+        .content>a{
+          width: 190px;
+          display: inline-block;
+        }
           span{
             width: 190px;
             display: inline-block;

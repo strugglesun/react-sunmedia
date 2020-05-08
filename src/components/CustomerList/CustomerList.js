@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Modal, Button, Space, message } from 'antd';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 import '../CustomerList/customerList.scss'
-import { Button } from 'antd';
 import { Link } from 'react-router-dom'
 class CustomerList extends Component {
   state = {
@@ -37,7 +38,7 @@ class CustomerList extends Component {
     const { checkedAll } = this.state
     return (
       <div className="customer-list">
-        <Link to='/CustomerList/add'><Button type='primary' >添加新客户</Button></Link>
+        <Link to='/customerList/add'><Button type='primary' >添加新客户</Button></Link>
         <h3>
           <input type="checkbox" checked={checkedAll} onChange={(event) => this.handlerAll(event)} />
           <div className='title'><span>客户编号</span><span>客户名称</span><span>描述</span><span>活动数</span><span>操作</span></div></h3>
@@ -51,11 +52,13 @@ class CustomerList extends Component {
 
                   <div className="content">
 
-                    <Link to={`/Customer/${item.id}/activities`}>
+                    <Link to={`/customer/${item.id}/activities`}>
                       <span className='customer'>{item.id}</span></Link>
                     <span>{item.name}</span><span>{item.descrip}</span>
-                    <span className='activity'>{item.activityNum}</span><span className='active'><b>编辑</b>
-                      <b onClick={() => this.del(item.id)}>删除</b></span>
+                    <span className='activity'>{item.activityNum}</span>
+                    <span className='active'>
+                      <b onClick={() => this.edit(item.id)}>编辑</b>
+                      <Space><b onClick={() => this.del(item.id)}>删除</b></Space></span>
                   </div>
                 </li>
               </div>
@@ -65,13 +68,42 @@ class CustomerList extends Component {
       </div>
     );
   }
+  edit = (id) => {
+    if (this.state.customer.find(item => { return item.id === id }).checked) {
+      this.props.history.push('/customerList/edit')
+    } else {
+      message.warning('请勾选当前编辑项')
+
+    }
+  }
   del = (id) => {
-    const newCustomer = this.state.customer.filter((item) => {
-      return item.id !== id
-    })
-    this.setState({
-      customer: newCustomer
-    })
+    if (this.state.customer.find(item => { return item.id === id }).checked) {
+      const { confirm } = Modal;
+      const { customer } = this.state
+      const that = this
+      confirm({
+        title: '你确认删除此客户吗',
+        icon: <ExclamationCircleOutlined />,
+        content: '不可恢复',
+        okText: 'Yes',
+        okType: 'danger',
+        cancelText: 'No',
+        onOk() {
+          const newCustomer = customer.filter((item) => {
+            return item.id !== id
+          })
+          that.setState({
+            customer: newCustomer
+          })
+        },
+        onCancel() {
+          console.log('Cancel');
+        },
+      });
+    } else {
+      message.warning('请勾选当前删除项')
+    }
+
   }
   handler = (event, id) => {
     console.log(id)
@@ -86,7 +118,7 @@ class CustomerList extends Component {
     })
     this.setState({
       customer: newCustomer,
-      checked: event.target.checked,
+      // checked: event.target.checked,
       checkedAll: newCustomer2.length ? false : true
 
     })
@@ -103,6 +135,7 @@ class CustomerList extends Component {
 
     })
   }
+
 
 
 
